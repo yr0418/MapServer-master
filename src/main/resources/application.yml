@@ -1,12 +1,26 @@
 server:
   port: 8200
+  servlet:
+    # 应用的访问路径
+    context-path: /trs-map
+  # 服务模块
+  devtools:
+    restart:
+      # 热部署开关
+      enabled: true
 
 map-server:
+  # 瓦片地图下载目录
   init-dirs:  map, map/google, map/google/satellite, map/google/image, map/google/terrain, map/amap, map/amap/satellite, map/amap/image, map/amap/cover, map/tianditu, map/tianditu/satellite, map/tianditu/image, map/tianditu/cover
-  config-file: map/map.config.json
+  # 天地图请求访问 key，key 的类型为：浏览器端。多个 key 之间用 英文逗号隔开
+  tiandituKeys: 22d7d4b663a4499547ce0adb4ff19b4b,c8cdfa08d6fa5651b8bba2f47a7a0c5c,974c0fcf7f47b26ccea88fd296c56bfb,9fd159d68457d255695a43c78e45d450
+  # 地图瓦片下载的最大等级，超过该等级的瓦片不会被下载至本地，系统处于联网状态仍能显示该瓦片
+  maxLevel: 4
+  # 瓦片全部下载开关，设置为 true 时，所有请求的瓦片都将被下载至本地 (谨慎开启)
+  saveAll: false
 
 # 日志配置
 logging:
   level:
-    com.cheese.MapServer: debug
+    cn.com.trs.MapServer: debug
     org.springframework: warn

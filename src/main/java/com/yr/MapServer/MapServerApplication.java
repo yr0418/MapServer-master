@@ -1,8 +1,11 @@
-package com.cheese.MapServer;
+package com.yr.MapServer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author TRS
+ */
 @SpringBootApplication
 public class MapServerApplication {
 
